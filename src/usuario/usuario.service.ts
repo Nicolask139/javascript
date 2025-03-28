@@ -23,6 +23,12 @@ async findOne(id: number) {
   });
 }
 
+async findByEmail(email: string) {
+  return this.prisma.usuario.findFirst({
+    where: { email }, // Busca pelo ID
+  });
+}
+
 async update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
   return this.prisma.usuario.update({
     where: { id }, // Encontra o usuário pelo ID

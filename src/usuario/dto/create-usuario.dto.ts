@@ -1,6 +1,7 @@
-import { IsEmail, IsNotEmpty, Length  } from "@nestjs/class-validator";
+import { IsEmail, IsNotEmpty, Length  } from 'class-validator';
 
 export class CreateUsuarioDto {
+
     @IsNotEmpty()
     @Length(3,255)
     nome: string;
