@@ -6,6 +6,12 @@ import { AuthController } from './auth.controller';
 import { jwtConstants } from './constants';
 import { UsuarioService } from 'src/usuario/usuario.service';
 import { PrismaService } from 'src/prisma/prisma.service';
+// import { APP_GUARD } from '@nestjs/core';
+// import { AuthGuard } from './auth.guard';
+
+// import { SetMetadata } from '@nestjs/common';
+
+
 
 @Module({
   imports: [
@@ -16,8 +22,13 @@ import { PrismaService } from 'src/prisma/prisma.service';
       signOptions: { expiresIn: '5m' },
     }),
   ],
-  providers: [AuthService, UsuarioService, PrismaService],
+  providers: [AuthService, UsuarioService, PrismaService,   
+  //  { provide: APP_GUARD,
+  //   useClass: AuthGuard,}
+  ],
   controllers: [AuthController],
   exports: [AuthService],
 })
 export class AuthModule {}
+// export const IS_PUBLIC_KEY = 'isPublic';
+// export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);
